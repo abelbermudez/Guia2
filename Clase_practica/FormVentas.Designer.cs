@@ -90,9 +90,8 @@
             lblestado.AutoSize = true;
             lblestado.Location = new Point(297, 49);
             lblestado.Name = "lblestado";
-            lblestado.Size = new Size(70, 20);
+            lblestado.Size = new Size(0, 20);
             lblestado.TabIndex = 5;
-            lblestado.Text = "Sin datos";
             // 
             // progressBar1
             // 
@@ -114,6 +113,7 @@
             Controls.Add(btnCargar);
             Controls.Add(dgvVentas);
             Name = "FormVentas";
+            Load += FormVentas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvVentas).EndInit();
             ResumeLayout(false);
             PerformLayout();

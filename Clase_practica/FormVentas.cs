@@ -20,7 +20,6 @@ namespace Clase_practica
 
             _ventaService = new Ventaservice();
 
-            InitializeComponent();
 
 
         }
@@ -47,7 +46,7 @@ namespace Clase_practica
 
                 dgvVentas.DataSource = null;
 
-                dgvVentas.DataSource = _ventas;
+                dgvVentas.DataSource = _ventas.ToList();
 
 
 
@@ -96,7 +95,8 @@ namespace Clase_practica
 
                 lblestado.Text = "Procesando información...";
 
-                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.Style = ProgressBarStyle.Blocks;
+                progressBar1.Value = 50;
 
                 btnprocesar.Enabled = false;
 
@@ -106,7 +106,9 @@ namespace Clase_practica
 
 
 
-                txtresultado.Text = reporte;
+       
+                txtresultado.Clear();
+                txtresultado.AppendText(reporte);
 
                 lblestado.Text = "Procesamiento finalizado.";
 
@@ -139,7 +141,13 @@ namespace Clase_practica
 
             lblestado.Text = "Sin datos";
 
-            _ventas.Clear();
+            if (_ventas != null)
+                _ventas.Clear();
+        }
+
+        private void FormVentas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
